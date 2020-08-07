@@ -39,11 +39,11 @@ queue:
 
 .PHONY: list
 list:
-	@$(VERIFAST) $(VERIFAST_ARGS)                         list/uxListRemove.c               | $(call check_coverage,229)
-	@$(VERIFAST) $(VERIFAST_ARGS)                         list/vListInitialise.c            | $(call check_coverage,157)
-	@$(VERIFAST) $(VERIFAST_ARGS)                         list/vListInitialiseItem.c        | $(call check_coverage,149)
-	@$(VERIFAST) $(VERIFAST_ARGS) -disable_overflow_check list/vListInsertEnd.c             | $(call check_coverage,223)
-	@$(VERIFAST) $(VERIFAST_ARGS) -disable_overflow_check list/vListInsert.c                | $(call check_coverage,259)
+	@$(VERIFAST) $(VERIFAST_ARGS)                         list/uxListRemove.c               | $(call check_coverage,222)
+	@$(VERIFAST) $(VERIFAST_ARGS)                         list/vListInitialise.c            | $(call check_coverage,150)
+	@$(VERIFAST) $(VERIFAST_ARGS)                         list/vListInitialiseItem.c        | $(call check_coverage,142)
+	@$(VERIFAST) $(VERIFAST_ARGS) -disable_overflow_check list/vListInsertEnd.c             | $(call check_coverage,216)
+	@$(VERIFAST) $(VERIFAST_ARGS) -disable_overflow_check list/vListInsert.c                | $(call check_coverage,252)
 
 .PHONY: proof_changes
 proof_changes:

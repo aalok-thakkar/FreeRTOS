@@ -217,34 +217,6 @@ lemma void DLS_star_item(
                 close DLS(n, nprev, mnext, m, cells, _);
         }
 }
-	
-lemma void DLS_distinct(
-	ListItem_t *n,
-	ListItem_t *nprev,
-	ListItem_t *mnext,
-	ListItem_t *m,
-	list<ListItem_t *> cells)
-  requires DLS(n, nprev, mnext, m, cells, ?container);
-  ensures DLS(n, nprev, mnext, m, cells, container) &*& distinct(cells) == true;
-{
-
-	open DLS(n, nprev, mnext, m, cells, _);
-	
-	switch (tail(cells))
-	{
-		case nil: 
-		
-			close DLS(n, nprev, mnext, m, cells, _);
-			
-		case cons(h2, t2): 
-		
-			assert DLS(?nnext, n, mnext, m, tail(cells), _);
-			DLS_distinct(nnext, n, mnext, m, tail(cells));
-			DLS_star_item(nnext, m, n);
-			close DLS(n, nprev, mnext, m, cells, _);
-			
-	}
-}
 
 lemma void singleton_DLS(
 	ListItem_t *n,
